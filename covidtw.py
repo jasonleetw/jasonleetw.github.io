@@ -13,18 +13,12 @@ url = 'https://covid-19.nchc.org.tw/myDT_staff.php?TB_name=csse_covid_19_daily_r
 context = ssl._create_unverified_context()
 with request.urlopen(url, context=context) as jsondata:
     data = json.loads(jsondata.read().decode())
-# print(data)
-for row in sorted(data['data'], key=lambda d: d['a02']):
+rows = sorted(data['data'], key=lambda d: d['a02'])
+for row in rows:
     x = datetime.strptime(row['a02'], '%Y-%m-%d')
     if x < datetime.strptime("2021-05-14", "%Y-%m-%d"):
         continue
-    # fp.write("{},{},{},{},{}\n".format(
-    #     d['a02'], d['a03'], d['a04'], d['a05'], d['a06']))
-    # if d['a03'] == '全區' and d['a02'] != '境外移入':
-    #     fp.write("{},{},{},{}\n".format(
-    #         d['a01'], d['a02'], d['a04'], d['a05']))
-
-    fp.write("{{year: '{}',Confirmed:{}, Deaths:{}, Recovered:{}, Active: {}}},".format(
+    fp.write("{{year: '{}',Confirmed:{}, Deaths:{}, Recovered:{}, Active: {}, }},".format(
         datetime.strftime(x, "%m/%d"), row['a03'], row['a04'], row['a05'], row['a06']))
 
 fp.write('];\n')
