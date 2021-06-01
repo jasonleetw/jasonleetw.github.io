@@ -33,7 +33,13 @@ var data_1 = [
     Recovered: 1133,
     Active: 6918,
   },
-  // { year: '05/31', Confirmed: 7806, Deaths: 99, Recovered: 1133, Active: 6574 },
+  {
+    year: '05/31',
+    Confirmed: 8511,
+    Deaths: 124,
+    Recovered: 1133,
+    Active: 7254,
+  },
 ];
 
 var data_2 = [
@@ -65,5 +71,5 @@ var data_2 = [
   { year: '05/28', barValue: 554, lineValue: 596.57 },
   { year: '05/29', barValue: 491, lineValue: 563.43 },
   { year: '05/30', barValue: 354, lineValue: 548.29 },
-  // { year: '05/31', barValue: 354, lineValue: 463.29 },
+  { year: '05/31', barValue: 351, lineValue: 513.43 },
 ];
