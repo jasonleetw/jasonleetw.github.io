@@ -3,7 +3,7 @@ am4core.ready(function () {
   am4core.useTheme(am4themes_animated);
 
   var chart0042 = am4core.create('chartdiv_0042', am4charts.XYChart);
-  chart0042.data = data_1;
+  chart0042.data = data_3;
 
   var categoryAxis = chart0042.xAxes.push(new am4charts.CategoryAxis());
   categoryAxis.dataFields.category = 'year';
