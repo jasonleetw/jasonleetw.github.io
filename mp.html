@@ -76,6 +76,8 @@
       }
       .container {
         position: absolute;
+        left: 350px;
+        top: 10px;
         background-color: #ffffff;
         width: 100%;
         max-height: 100%;
@@ -125,7 +127,7 @@
       }
       .control-panel {
         position: absolute;
-        left: 350px;
+        left: 10px;
         top: 10px;
       }
       .loading {
@@ -176,26 +178,6 @@
     </script>
   </head>
   <body translate="no">
-    <style>
-      .square-box {
-        display: none;
-        width: 33%;
-        height: 0;
-        padding-top: 33%;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-      }
-
-      .landmark-grid-container {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #99999999;
-      }
-    </style>
     <div class="container">
       <video class="input_video"></video>
       <canvas class="output_canvas"></canvas>
@@ -203,16 +185,11 @@
         <div class="spinner"></div>
         <div class="message">Loading</div>
       </div>
-
       <div class="shoutout"></div>
     </div>
     <div class="control-panel"></div>
-    <div class="square-box">
-      <div class="landmark-grid-container"></div>
-    </div>
   </body>
 </html>
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 <script id="rendered-js" type="module">
   import DeviceDetector from "https://cdn.skypack.dev/device-detector-js@2.2.10";
   const mpHands = window;
@@ -272,24 +249,6 @@
   spinner.ontransitionend = () => {
     spinner.style.display = "none";
   };
-
-  const landmarkContainer = document.getElementsByClassName(
-    "landmark-grid-container"
-  )[0];
-  const grid = new controls3d.LandmarkGrid(landmarkContainer, {
-    connectionColor: 0xcccccc,
-    definedColors: [
-      { name: "Left", value: 0xffa500 },
-      { name: "Right", value: 0x00ffff },
-    ],
-    range: 0.2,
-    fitToGrid: false,
-    labelSuffix: "m",
-    landmarkSize: 2,
-    numCellsPerAxis: 4,
-    showHidden: false,
-    centered: false,
-  });
 
   function onResults(results) {
     // Hide the spinner.
@@ -354,9 +313,6 @@
           color: classification.label,
         });
       }
-      grid.updateLandmarks(landmarks, connections, colors);
-    } else {
-      grid.updateLandmarks([]);
     }
   }
 
