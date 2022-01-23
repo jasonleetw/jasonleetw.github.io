@@ -23,8 +23,8 @@
 
   <body>
     <div class="container">
-      <video class="input_video"></video><br />
-      <canvas class="output_canvas" width="640px" height="480px"></canvas>
+      <video class="input_video"></video>
+      <canvas class="output_canvas" width="480px" height="360px"></canvas>
     </div>
     <div id="msg"></div>
   </body>
@@ -52,6 +52,7 @@
           lineWidth: 2,
         });
         drawLandmarks(canvasCtx, landmarks, {
+          radius: 2,
           color: "#ff0000",
           lineWidth: 1,
         });
@@ -78,8 +79,8 @@
     onFrame: async () => {
       await hands.send({ image: videoElement });
     },
-    width: 640,
-    height: 480,
+    width: 480,
+    height: 360,
   });
   camera.start();
 </script>
