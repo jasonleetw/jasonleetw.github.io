@@ -57,7 +57,10 @@
           lineWidth: 1,
         });
         str = $("#msg").html(
-          Date.now() + ":" + landmarks[8].x * canvasElement.width
+          "x: " +
+            landmarks[8].x * canvasElement.width +
+            "<br />y: " +
+            landmarks[8].y * canvasElement.height
         );
       }
     }
