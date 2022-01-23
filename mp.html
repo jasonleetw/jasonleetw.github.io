@@ -15,11 +15,17 @@
 
     table,
     th,
+    tr,
     td {
+      vertical-align: top;
+    }
+
+    .jasonlee {
       border: 1px solid black;
       border-collapse: collapse;
       padding: 4px;
       vertical-align: top;
+      text-align: right;
     }
   </style>
 </head>
@@ -80,15 +86,15 @@
     let str = "";
     for (let i = 0; i < 21; i++) {
       str +=
-        "<tr><td>" +
+        '<tr class="jasonlee"><td class="jasonlee">' +
         i +
-        "</td><td>" +
+        '</td><td class="jasonlee">' +
         (landmarks[i].x * canvasElement.width).toFixed(3) +
-        "</td><td>" +
+        '</td><td class="jasonlee">' +
         (landmarks[i].x * canvasElement.height).toFixed(3) +
         "</td></tr>";
     }
-    $("#msg").html("<table>" + str + "</table>");
+    $("#msg").html('<table class="jasonlee">' + str + '</table>');
     $("#time").html(Date.now());
   }
 
