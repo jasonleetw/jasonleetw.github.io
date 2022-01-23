@@ -56,7 +56,9 @@
           color: "#ff0000",
           lineWidth: 1,
         });
-        $("#msg").html(landmarks[8].x * canvasElement.width);
+        str = $("#msg").html(
+          Date.now() + ":" + landmarks[8].x * canvasElement.width
+        );
       }
     }
     canvasCtx.restore();
