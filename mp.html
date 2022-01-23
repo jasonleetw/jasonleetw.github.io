@@ -56,11 +56,13 @@
           color: "#ff0000",
           lineWidth: 1,
         });
-        str = $("#msg").html(
-          "x: " +
+        $("#msg").html(
+          "Time: " +
+            Date.now() +
+            "<br />INDEX_FINGER_TIP(8)<br/>x: " +
             landmarks[8].x * canvasElement.width +
-            "<br />y: " +
-            landmarks[8].y * canvasElement.height
+            "<br/>y: " +
+            landmarks[8].x * canvasElement.height
         );
       }
     }
