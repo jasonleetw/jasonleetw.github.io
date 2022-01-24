@@ -13,13 +13,6 @@
       font-family: Tahoma, Arial, Helvetica, sans-serif;
     }
 
-    table,
-    th,
-    tr,
-    td {
-      vertical-align: top;
-    }
-
     .jasonlee {
       border: 1px solid black;
       border-collapse: collapse;
@@ -27,24 +20,21 @@
       vertical-align: top;
       text-align: right;
     }
+
+    .msg {
+      position: absolute;
+      left: 500px;
+      top: 10px;
+    }
   </style>
 </head>
 
 <body>
-  <table>
-    <tr>
-      <td>
-        <div class="container">
-          <video class="input_video"></video><br />
-          <canvas class="output_canvas" width="480px" height="360px"></canvas>
-        </div>
-      </td>
-      <td>
-        Time: <span id="time"> </span><br />
-        <div id="msg"></div>
-      </td>
-    </tr>
-  </table>
+  <div class="container">
+    <video class="input_video"></video><br />
+    <canvas class="output_canvas" width="480px" height="360px"></canvas>
+  </div>
+  <div class="msg" id="msg"></div>
 </body>
 
 </html>
@@ -75,7 +65,6 @@
           color: "#ff0000",
           lineWidth: 1,
         });
-
         dataOutput(landmarks);
       }
     }
@@ -94,8 +83,7 @@
         (landmarks[i].x * canvasElement.height).toFixed(3) +
         "</td></tr>";
     }
-    $("#msg").html('<table class="jasonlee">' + str + '</table>');
-    $("#time").html(Date.now());
+    $("#msg").html('Time: ' + Date.now() + '<br/><table class="jasonlee">' + str + '</table>');
   }
 
   const hands = new Hands({
