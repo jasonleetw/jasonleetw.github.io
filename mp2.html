@@ -28,7 +28,6 @@
       top: 10px;
     }
   </style>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
@@ -52,8 +51,6 @@
   <br />
   <button type="button" id="btn">Reset</button>
   <div class="counter" id="counter"></div>
-  <!-- <button onclick="Oszi()">Start</button>
-  <button onclick="_FFT()">Perform FFT</button> -->
   <div id="graph"></div>
 </body>
 
@@ -93,9 +90,10 @@
     let x = 0;
     let y = 0;
     for (var j = 0; j < spectrum.length; j++) {
+      // data.push([frequencyIncrement * j, spectrum[j]]);
       x = frequencyIncrement * j;
       y = spectrum[j];
-      if ((y <= 50) && (y >= 3)) {
+      if ((y <= 50) && (y >= 0)) {
         data.push([x, y]);
       }
     }
