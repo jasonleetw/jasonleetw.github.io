@@ -26,9 +26,8 @@
 
   function Oszi() {
     signal = [];
-    $.get("source.csv", function (txt) {
+    $.get("./source.csv", function (txt) {
       var lines = txt.split("\r\n");
-      // for (var i = 0; i < lines.length; i++) {
       for (var i = 0; i < buf; i++) {
         signal.push(parseFloat(lines[i]));
       }
