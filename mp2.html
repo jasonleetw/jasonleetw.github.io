@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * {
+      font-family: Tahoma, Arial, Helvetica, sans-serif;
+    }
+
+    .jasonlee {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 4px;
+      vertical-align: top;
+      text-align: right;
+    }
+
+    .data {
+      position: absolute;
+      left: 500px;
+      top: 10px;
+    }
+
+    .msg {
+      position: absolute;
+      left: 610px;
+      top: 10px;
+    }
+  </style>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-csv@1.0.21/src/jquery.csv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dygraphs@2.1.0/dist/dygraph.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dspjs@1.0.0/dsp.min.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <video class="input_video" style="display: none"></video><br />
+    <canvas class="output_canvas" width="480px" height="360px"></canvas>
+  </div>
+  <textarea class="data" id="data" name="data" rows="20" cols="10"></textarea>
+  <div class="msg" id="msg"></div>
+  <br />
+  <button type="button" id="btn">Reset</button>
+  <div class="counter" id="counter"></div>
+  <!-- <button onclick="Oszi()">Start</button>
+  <button onclick="_FFT()">Perform FFT</button> -->
+  <div id="graph"></div>
+</body>
+
+</html>
+
+<script>
+  var signal = [];
+  var sam = 17;
+  var fre = 14;
+  var buf = 128;
+  var counter = 0;
+
+  $(document).ready(function () {
+    $("#btn").click(function () {
+      resetData;
+    });
+  });
+
+  function resetData() {
+    signal = [];
+    counter = 0;
+    $("#data").html('');
+    $("#counter").html("Counter: " + counter);
+  }
+
+  function Oszi() {
+    var lines = $("#data").text().split("\n");
+    for (var i = 0; i < buf; i++) {
+      signal.push(parseFloat(lines[i]));
+    }
+    plot(signal);
+
+  }
+
+  function _FFT() {
+    signal = [];
+    var lines = $("#data").text().split("\n");
+    for (var i = 0; i < buf; i++) {
+      signal.push(parseFloat(lines[i]));
+    }
+    // var fft = new FFT(bufferSize, samplingRate);
+    var fft = new FFT(buf, sam);
+    fft.forward(signal);
+    var spectrum = fft.spectrum;
+    plotFFT(spectrum, sam);
+  }
+
+  function calFFT() {
+    var fft = new FFT(buf, sam);
+    fft.forward(signal);
+    var spectrum = fft.spectrum;
+    plotFFT(spectrum, sam);
+  }
+
+  function plotFFT(spectrum, samplingRate) {
+    var data = [];
+    var frequencyIncrement = parseFloat(samplingRate) / 2 / spectrum.length;
+    let x = 0;
+    let y = 0;
+    for (var j = 0; j < spectrum.length; j++) {
+      x = frequencyIncrement * j;
+      y = spectrum[j];
+      if ((y <= 50) && (y >= 3)) {
+        data.push([x, y]);
+      }
+    }
+    new Dygraph(document.getElementById("graph"), data);
+    console.log(data);
+  }
+
+
+  function plot(plotData) {
+    var row = [];
+    for (var j = 0; j < plotData.length; j++) {
+      row.push([j, plotData[j]]);
+    }
+    console.log(row);
+    new Dygraph(document.getElementById("graph"), row);
+  }
+
+  const videoElement = document.getElementsByClassName("input_video")[0];
+  const canvasElement = document.getElementsByClassName("output_canvas")[0];
+  const canvasCtx = canvasElement.getContext("2d");
+
+  function onResults(results) {
+    canvasCtx.save();
+    canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    canvasCtx.drawImage(
+      results.image,
+      0,
+      0,
+      canvasElement.width,
+      canvasElement.height
+    );
+    if (results.multiHandLandmarks) {
+      for (const landmarks of results.multiHandLandmarks) {
+        drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {
+          color: "#ffffff",
+          lineWidth: 2,
+        });
+        drawLandmarks(canvasCtx, landmarks, {
+          radius: 2,
+          color: "#ff0000",
+          lineWidth: 1,
+        });
+        // $("#data").append(Date.now() + "," + (landmarks[8].x * canvasElement.width).toFixed(3) + "\n");
+        $("#data").append((landmarks[8].x * canvasElement.width).toFixed(3) + "\n");
+        $('#data').scrollTop($('#data')[0].scrollHeight);
+        dataOutput(landmarks);
+        signal.push(landmarks[8].x * canvasElement.width);
+        $("#counter").html("Counter: " + ++counter);
+        if (signal.length >= buf) {
+          calFFT();
+          resetData();
+        }
+      }
+
+    }
+    canvasCtx.restore();
+  }
+
+  function dataOutput(landmarks) {
+    let str = "";
+    for (let i = 0; i < 21; i++) {
+      str +=
+        '<tr class="jasonlee"><td class="jasonlee">' +
+        i +
+        '</td><td class="jasonlee">' +
+        (landmarks[i].x * canvasElement.width).toFixed(3) +
+        '</td><td class="jasonlee">' +
+        (landmarks[i].x * canvasElement.height).toFixed(3) +
+        "</td></tr>";
+    }
+    $("#msg").html('Time: ' + Date.now() + '<br/><table class="jasonlee">' + str + '</table>');
+  }
+
+  const hands = new Hands({
+    locateFile: (file) => {
+      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+    },
+  });
+  hands.setOptions({
+    maxNumHands: 2,
+    modelComplexity: 1,
+    minDetectionConfidence: 0.5,
+    minTrackingConfidence: 0.5,
+  });
+  hands.onResults(onResults);
+
+  const camera = new Camera(videoElement, {
+    onFrame: async () => {
+      await hands.send({ image: videoElement });
+    },
+    width: 480,
+    height: 360,
+  });
+  camera.start();
+
+</script>
