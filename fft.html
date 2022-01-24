@@ -3,22 +3,41 @@
 <head>
   <title>FFT</title>
   <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dygraphs@2.1.0/dist/dygraph.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-csv@1.0.21/src/jquery.csv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dygraphs@2.1.0/dist/dygraph.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dspjs@1.0.0/dsp.min.js"></script>
+
 </head>
 
 <body>
   <div id="graph"></div>
   <button onclick="Oszi()">Start</button>
-  <button onclick="_FFT(signal,1024,1000)">Perform FFT</button>
+  <button onclick="_FFT()">Perform FFT</button>
 </body>
 
 </html>
-<script type="text/javascript">//<![CDATA[
+<script>
   var signal = [];
   var sam = 1000;
   var fre = 14;
-  var buf = 1024;
+  var buf = 8192;
 
   function Oszi() {
+    signal = [];
+    $.get("source.csv", function (txt) {
+      var lines = txt.split("\r\n");
+      // for (var i = 0; i < lines.length; i++) {
+      for (var i = 0; i < buf; i++) {
+        signal.push(parseFloat(lines[i]));
+      }
+      plot(signal);
+    });
+
+  }
+
+  function Oszi_1() {
     signal = []
     for (i = 0; i < buf; i++) {
       signal.push(3 * Math.cos(Math.PI * 2 * i / sam * fre * 2.7) + Math.sin(Math.PI * 2 * i / sam * fre));
@@ -26,19 +45,26 @@
     plot(signal);
   }
 
-  function _FFT(signal, bufferSize, samplingRate) {
-    var fft = new FFT(bufferSize, samplingRate);
+  function _FFT() {
+    // var fft = new FFT(bufferSize, samplingRate);
+    var fft = new FFT(buf, sam);
     fft.forward(signal);
     var spectrum = fft.spectrum;
-    plotFFT(spectrum, samplingRate);
+    plotFFT(spectrum, sam);
   }
 
 
   function plotFFT(spectrum, samplingRate) {
     var data = [];
     var frequencyIncrement = parseFloat(samplingRate) / 2 / spectrum.length;
+    let x = 0;
+    let y = 0;
     for (var j = 0; j < spectrum.length; j++) {
-      data.push([frequencyIncrement * j, spectrum[j]]);
+      x = frequencyIncrement * j;
+      y = spectrum[j];
+      if ((y <= 50) && (y >= 3)) {
+        data.push([x, y]);
+      }
     }
     new Dygraph(document.getElementById("graph"), data);
     console.log(data);
@@ -55,5 +81,4 @@
   }
 
   Oszi()
-
-  //]]></script>
+</script>
