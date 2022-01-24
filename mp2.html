@@ -63,7 +63,7 @@
   var buf = 128;
   var counter = 0;
   var timestamp = 0.0;
-  var diff = 0.0;
+  var t = 0.0;
 
   $(document).ready(function () {
     $("#btn").click(function () {
@@ -145,9 +145,9 @@
         dataOutput(landmarks);
         signal.push(landmarks[8].x * canvasElement.width);
         $("#counter").html("Counter: " + ++counter);
-        diff = Date.now();
-        $("#fps").html("FPS: " + (1000 / (diff - timestamp)).toFixed(1));
-        timestamp = diff;
+        timestamp = Date.now();
+        $("#fps").html("FPS: " + (1000 / (timestamp - t)).toFixed(1));
+        t = timestamp;
         if (signal.length >= buf) {
           calFFT();
           // plot(signal)
