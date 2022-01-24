@@ -9,6 +9,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $("#btn").click(function () {
+        alert($("#data").text());
+      });
+    });
+  </script>
   <style>
     * {
       font-family: Tahoma, Arial, Helvetica, sans-serif;
@@ -43,11 +50,14 @@
   </div>
   <textarea class="data" id="data" name="data" rows="37" cols="25"></textarea>
   <div class="msg" id="msg"></div>
+  <br />
+  <button type="button" id="btn">Go</button>
 </body>
 
 </html>
 
 <script type="module">
+
   const videoElement = document.getElementsByClassName("input_video")[0];
   const canvasElement = document.getElementsByClassName("output_canvas")[0];
   const canvasCtx = canvasElement.getContext("2d");
@@ -117,4 +127,5 @@
     height: 360,
   });
   camera.start();
+
 </script>

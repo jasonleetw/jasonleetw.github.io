@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 
 <head>
-  <title>timeline - FFT decomposition</title>
+  <title>FFT</title>
   <meta charset="utf-8" />
-  <link href="/css/fft.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="timelines" class="viz">
-    <div id="controls1" class="controls">
-      update time serie with a seasonality's length of <a href="#" onclick="updateSeasonalityPeriod(2);">2</a> /<a
-        href="#" onclick="updateSeasonalityPeriod(3);">3</a> / <a href="#" onclick="updateSeasonalityPeriod(4);">4</a> /
-      <a href="#" onclick="updateSeasonalityPeriod(5);">5</a> / <a href="#" onclick="updateSeasonalityPeriod(6);">6</a>
-      / <a href="#" onclick="updateSeasonalityPeriod(7);">7</a> / <a href="#"
-        onclick="updateSeasonalityPeriod(8);">8</a> / <a href="#" onclick="updateSeasonalityPeriod(9);">9</a> / <a
-        href="#" onclick="updateSeasonalityPeriod(10);">10</a> periods
-    </div>
-    <div id="controls2" class="controls">
-      <a href="#" onclick="increaseSeasonOrderOfMagnitude();">increase</a> / <a href="#"
-        onclick="decreaseSeasonOrderOfMagnitude();">decrease</a> seasonality's order of magnitude
-    </div>
-    <div id="controls3" class="controls">
-      <a href="#" onclick="increaseTrend();">increase</a> / <a href="#" onclick="decreaseTrend();">decrease</a>
-      timeline's trend
-    </div>
-  </div>
-  <div id="fft" class="viz"></div>
-  <div id="flow-1" class="flow"><span>FFT</span>&#8615;</div>
-  <div id="flow-2" class="flow">&#8613;<span>iFFT of selected components</span></div>
-  <div id="under-construction">
-    UNDER CONSTRUCTION
-  </div>
+  <div id="graph"></div>
+  <button onclick="Oszi()">Start</button>
+  <button onclick="_FFT(signal,1024,1000)">Perform FFT</button>
 </body>
 
 </html>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="js/fft.js"></script>
+<script type="text/javascript">//<![CDATA[
+  var signal = [];
+  var sam = 1000;
+  var fre = 14;
+  var buf = 1024;
+
+  function Oszi() {
+    signal = []
+    for (i = 0; i < buf; i++) {
+      signal.push(3 * Math.cos(Math.PI * 2 * i / sam * fre * 2.7) + Math.sin(Math.PI * 2 * i / sam * fre));
+    }
+    plot(signal);
+  }
+
+  function _FFT(signal, bufferSize, samplingRate) {
+    var fft = new FFT(bufferSize, samplingRate);
+    fft.forward(signal);
+    var spectrum = fft.spectrum;
+    plotFFT(spectrum, samplingRate);
+  }
+
+
+  function plotFFT(spectrum, samplingRate) {
+    var data = [];
+    var frequencyIncrement = parseFloat(samplingRate) / 2 / spectrum.length;
+    for (var j = 0; j < spectrum.length; j++) {
+      data.push([frequencyIncrement * j, spectrum[j]]);
+    }
+    new Dygraph(document.getElementById("graph"), data);
+    console.log(data);
+  }
+
+
+  function plot(plotData) {
+    var row = [];
+    for (var j = 0; j < plotData.length; j++) {
+      row.push([j, plotData[j]]);
+    }
+    console.log(row);
+    new Dygraph(document.getElementById("graph"), row);
+  }
+
+  Oszi()
+
+  //]]></script>
