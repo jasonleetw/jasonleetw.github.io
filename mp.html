@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -23,6 +24,12 @@
 
     .msg {
       position: absolute;
+      left: 720px;
+      top: 10px;
+    }
+
+    .data {
+      position: absolute;
       left: 500px;
       top: 10px;
     }
@@ -35,7 +42,7 @@
     <canvas class="output_canvas" width="480px" height="360px"></canvas>
   </div>
   <div class="msg" id="msg"></div>
-  <textarea id="data" name="data" rows="20" cols="30"></textarea>
+  <textarea class="data" id="data" name="data" rows="37" cols="25"></textarea>
 </body>
 
 </html>
@@ -67,6 +74,7 @@
           lineWidth: 1,
         });
         $("#data").append(Date.now() + "," + (landmarks[8].x * canvasElement.width).toFixed(3) + "\n");
+        $('#data').scrollTop($('#data')[0].scrollHeight);
         dataOutput(landmarks);
       }
     }
