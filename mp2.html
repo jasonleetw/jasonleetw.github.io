@@ -79,28 +79,7 @@
     $("#counter").html("Counter: " + counter);
   }
 
-  function Oszi() {
-    var lines = $("#data").text().split("\n");
-    for (var i = 0; i < buf; i++) {
-      signal.push(parseFloat(lines[i]));
-    }
-    plot(signal);
-
-  }
-
-  function _FFT() {
-    signal = [];
-    var lines = $("#data").text().split("\n");
-    for (var i = 0; i < buf; i++) {
-      signal.push(parseFloat(lines[i]));
-    }
-    // var fft = new FFT(bufferSize, samplingRate);
-    var fft = new FFT(buf, sam);
-    fft.forward(signal);
-    var spectrum = fft.spectrum;
-    plotFFT(spectrum, sam);
-  }
-
+  // FFT
   function calFFT() {
     var fft = new FFT(buf, sam);
     fft.forward(signal);
@@ -134,6 +113,7 @@
     new Dygraph(document.getElementById("graph"), row);
   }
 
+  // Mediapipe
   const videoElement = document.getElementsByClassName("input_video")[0];
   const canvasElement = document.getElementsByClassName("output_canvas")[0];
   const canvasCtx = canvasElement.getContext("2d");
