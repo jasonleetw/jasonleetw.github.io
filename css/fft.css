@@ -1,0 +1,123 @@
+body {
+  position: relative;
+  background-color: #ddd;
+  margin: auto;
+}
+
+#under-construction {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 300px;
+  font-size: 40px;
+}
+
+.controls {
+  position: absolute;
+  font: 11px arial;
+}
+
+#controls1 {
+  top: 300px;
+  left: 10px;
+}
+
+#controls2 {
+  top: 300px;
+  left: 450px;
+}
+
+#controls3 {
+  top: 300px;
+  right: 10px;
+  text-align: right;
+}
+
+.viz {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  left: 5px;
+}
+
+.viz#timelines {
+  top: 5px;
+}
+
+.viz#fft {
+  top: 355px;
+}
+
+.flow {
+  position: absolute;
+  font-size: 30px;
+  color: darkgrey;
+  top: 320px;
+}
+
+.flow span {
+  font-size: initial;
+}
+
+#flow-1 {
+  left: 447px;
+}
+
+#flow-2 {
+  display: none;
+  right: 230px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+  fill: black;
+}
+
+.grid > line,
+.grid > .intersect {
+  fill: none;
+  stroke: #ddd;
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
+}
+
+.legend {
+  font-size: 12px;
+}
+
+.dot {
+  fill: steelblue;
+  stroke: white;
+  stroke-width: 3px;
+}
+
+.dot.draggable:hover,
+.dot.dragging {
+  fill: pink;
+  cursor: ns-resize;
+}
+
+.timeline {
+  fill: none;
+  stroke: lightsteelblue;
+  stroke-width: 2px;
+}
+
+.timeline.draggable:hover,
+.timeline.dragging {
+  stroke: pink;
+  opacity: 1;
+  cursor: ns-resize;
+}
+
+.fft-bar {
+  fill: grey;
+}

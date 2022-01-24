@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+  <title>timeline - FFT decomposition</title>
+  <meta charset="utf-8" />
+  <link href="/css/fft.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="timelines" class="viz">
+    <div id="controls1" class="controls">
+      update time serie with a seasonality's length of <a href="#" onclick="updateSeasonalityPeriod(2);">2</a> /<a
+        href="#" onclick="updateSeasonalityPeriod(3);">3</a> / <a href="#" onclick="updateSeasonalityPeriod(4);">4</a> /
+      <a href="#" onclick="updateSeasonalityPeriod(5);">5</a> / <a href="#" onclick="updateSeasonalityPeriod(6);">6</a>
+      / <a href="#" onclick="updateSeasonalityPeriod(7);">7</a> / <a href="#"
+        onclick="updateSeasonalityPeriod(8);">8</a> / <a href="#" onclick="updateSeasonalityPeriod(9);">9</a> / <a
+        href="#" onclick="updateSeasonalityPeriod(10);">10</a> periods
+    </div>
+    <div id="controls2" class="controls">
+      <a href="#" onclick="increaseSeasonOrderOfMagnitude();">increase</a> / <a href="#"
+        onclick="decreaseSeasonOrderOfMagnitude();">decrease</a> seasonality's order of magnitude
+    </div>
+    <div id="controls3" class="controls">
+      <a href="#" onclick="increaseTrend();">increase</a> / <a href="#" onclick="decreaseTrend();">decrease</a>
+      timeline's trend
+    </div>
+  </div>
+  <div id="fft" class="viz"></div>
+  <div id="flow-1" class="flow"><span>FFT</span>&#8615;</div>
+  <div id="flow-2" class="flow">&#8613;<span>iFFT of selected components</span></div>
+  <div id="under-construction">
+    UNDER CONSTRUCTION
+  </div>
+</body>
+
+</html>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="js/fft.js"></script>
