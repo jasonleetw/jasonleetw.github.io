@@ -51,6 +51,7 @@
   <br />
   <button type="button" id="btn">Reset</button>
   <div class="counter" id="counter"></div>
+  <div class="fps" id="fps"></div>
   <div id="graph"></div>
 </body>
 
@@ -59,9 +60,10 @@
 <script>
   var signal = [];
   var sam = 17;
-  var fre = 14;
   var buf = 128;
   var counter = 0;
+  var timestamp = 0.0;
+  var diff = 0.0;
 
   $(document).ready(function () {
     $("#btn").click(function () {
@@ -93,7 +95,7 @@
       // data.push([frequencyIncrement * j, spectrum[j]]);
       x = frequencyIncrement * j;
       y = spectrum[j];
-      if ((y <= 50) && (y >= 0)) {
+      if ((y <= 10) && (y >= 1)) {
         data.push([x, y]);
       }
     }
@@ -143,12 +145,15 @@
         dataOutput(landmarks);
         signal.push(landmarks[8].x * canvasElement.width);
         $("#counter").html("Counter: " + ++counter);
+        diff = Date.now();
+        $("#fps").html("FPS: " + (1000 / (diff - timestamp)).toFixed(1));
+        timestamp = diff;
         if (signal.length >= buf) {
           calFFT();
+          // plot(signal)
           resetData();
         }
       }
-
     }
     canvasCtx.restore();
   }
