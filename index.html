@@ -2,7 +2,7 @@
 <html lang="zh-Hant-TW">
 
 <head>
-  <title>台灣 COVID-19 疫苗</title>
+  <title>Taiwan COVID-19</title>
   <meta charset="utf-8" />
   <style>
     #chartdiv_025_vaccination_class {
@@ -10,12 +10,12 @@
       height: 600px;
     }
 
-    #chartdiv_026_vaccination_progress {
+    #chartdiv_009_city {
       width: 100%;
       height: 400px;
     }
 
-    #chartdiv_009_city_tw {
+    #chartdiv_009_fix {
       width: 100%;
       height: 400px;
     }
@@ -27,25 +27,27 @@
   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
   <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
 
-  <script src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_026_vaccination_progress.min.js"></script>
-  <script src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_009_city_tw_TWN.min.js"></script>
+  <script
+    src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_009_city_OWID_WRL.min.js"></script>
+  <script src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_009_fix.min.js"></script>
+
 </head>
 
 <body>
 
   <p><iframe
-      src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=&facet=none&pickerSort=asc&pickerMetric=location&Metric=People+vaccinated+%28by+dose%29&Interval=7-day+rolling+average&Relative+to+Population=true&Align+outbreaks=false&country=SGP~CHN~USA~JPN~DEU~FRA~TWN~GBR~KOR~AUT"
+      src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=&facet=none&pickerSort=asc&pickerMetric=location&Metric=People+vaccinated+%28by+dose%29&Interval=7-day+rolling+average&Relative+to+Population=true&Align+outbreaks=false&country=SGP~CHN~USA~JPN~DEU~FRA~TWN~GBR~KOR"
       style="width:100%;height:660px; border: 0px none;"></iframe></p>
 
   <h1 style="text-align: center;">台灣 COVID-19 疫苗各項統計資料</h1>
   資料來源：NCHC國家高速網路與計算中心<br>
 
   <hr>
-  <h3>台灣COVID-19 疫情每日統計圖(1)</h3>
-  <div id="chartdiv_009_city_tw"></div>
+  <h3>台灣COVID-19 疫情每日統計圖</h3>
+  <div id="chartdiv_009_fix"></div>
   <hr>
-  <h3>疫苗實際到貨及接種劑數</h3>
-  <div id="chartdiv_026_vaccination_progress"></div>
+  <h3>全球疫情每日新增數</h3>
+  <div id="chartdiv_009_city"></div>
 
 </body>
 

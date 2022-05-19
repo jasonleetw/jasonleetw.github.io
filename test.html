@@ -1,26 +1,1370 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
-  <head>
-    <meta charset="utf-8" />
-    <title>測試</title>
-    <script>
-      function myFunction() {
-        document.getElementById("demo").innerHTML = Date();
-      }
-    </script>
-  </head>
-  <body>
-    Hello World!
-    <p />
-    <h1>My First JavaScript 20210405</h1>
-    <button type="button" onclick="myFunction()">
-      Click me to display Date and Time.
-    </button>
-    <p id="demo"></p>
-    <iframe
-      src="https://ourworldindata.org/grapher/daily-covid-deaths-7-day?tab=chart"
-      loading="lazy"
-      style="width: 100%; height: 600px; border: 0px none"
-    ></iframe>
-  </body>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="ImgLarger" />
+  <meta name="description"
+    content="AI Image Enlarger is a FREE online image enlarger that could upscale and enhance small images automatically. Make jpg/png pictures big without losing quality." />
+  <meta name="keywords">
+  <script type="text/javascript" nonce="d11f8d5cc7e345669784df0c4af"
+    src="//local.adguard.org?ts=1651056411498&amp;type=content-script&amp;dmn=imglarger.com&amp;pth=%2FTw%2FIndex&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+  <script type="text/javascript" nonce="d11f8d5cc7e345669784df0c4af"
+    src="//local.adguard.org?ts=1651056411498&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <title>AI Image Enlarger | Enlarge Image Without Losing Quality!</title>
+  <!-- FAVICON AND TOUCH ICONS -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon"><!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link href="/Content/css?v=6lqNnMWATAKcTUQfIY7q2DUiQ1vvdcnaJDjRnwR_APA1" rel="stylesheet" />
+  <link href="/Content/notification?v=UBBtIhaIZn4ixbss4BfcX8we6UQ0nmy27kZkmYWO-og1"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <link href="/Content/tools?v=oP6h7BGIrf4d9fA-lg3AKTynOxyuPDU09D_IB4gJQvg1" rel="stylesheet" />
+  <link href="/Tools/pintura/pintura.css" rel="stylesheet" />
+  <section id="hero-11" class="bg-whitesmoke-gradient hero-section division">
+    <div class="container">
+      <div class="ad_layout ad_hide" id="google_ads">
+        <!-- AI Image Enlarger Ads --><ins class="adsbygoogle"
+          style="display: inline-block; width: 728px; height: 90px;"
+          data-ad-client="ca-pub-3375362754009496" data-ad-slot="2672844730"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      <div class="row d-flex">
+        <!-- HERO IMAGE -->
+        <div class="col-md-5 col-lg-6 order-last order-md-2 text-center">
+          <div class="cb-shape-2"><img class="img-fluid" src="/Images/png/bg-shape-1.png"
+              alt="content-image"></div>
+          <div class="cb-shape-3">
+            <div class="cb-sharpe-3-circle"></div>
+          </div>
+          <div style="height:670px; max-width:450px; margin:auto">
+            <div id="banner" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-enlarger-1-after-2.jpg"
+                  alt="image processed by AI Image Enlarger">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-enlarger-1-before-2.jpg"
+                    alt="image before using AI Image Enlarger">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+          </div>
+        </div><!-- HERO TEXT -->
+        <div class="col-md-7 col-lg-6 order-first order-md-2 mt-md-5">
+          <div class="hero-11-txt">
+            <!-- Title -->
+            <h2 class="h2-lg">AI Image Enlarger & Enhancer Tools</h2><!-- Text -->
+            <p class="p-xl"> All-in-one AI toolkits help you enhance and upscale images. Increases
+              image resolution without losing quality.</p>
+            <form id="fileupload" enctype="multipart/form-data" action="#">
+              <!-- Redirect browsers with JavaScript disabled to the origin page --><noscript><input
+                  type="hidden" name="redirect"
+                  value="https://blueimp.github.io/jQuery-File-Upload/" /></noscript>
+              <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+              <div class="row fileupload-buttonbar">
+                <div class="col-lg-12">
+                  <div id="drop-zone" class="cb-holder">
+                    <div id="clickHere">
+                      <div class="box"><input type="file" name="myfile" id="file"
+                          class="inputfile inputfile-4"
+                          data-multiple-caption="{count} files selected" multiple=""
+                          accept=".jpg, .gif, .png, .jpeg" /><label for="file"><a
+                            class="btn btn-skyblue mt-30"><img class="mr-10" width="30"
+                              src="/Images/svg/upload.svg" />Select Images</a></label>
+                        <p class="p-sm mb-0"> or Drag and Drop</p>
+                        <p style="font-size: 12px; color: #b1b1b1;">JPG or PNG. Max Size <span
+                            id="maxfilesize">5MB</span>or <span id="restriction">1200*1200</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- The table listing the files available for upload/download -->
+              <table role="presentation" class="table table-striped" id="upload_table">
+                <tbody class="files"></tbody>
+              </table>
+            </form>
+          </div>
+        </div><!-- END HERO TEXT -->
+      </div><!-- End row -->
+    </div><!-- End container -->
+  </section><!-- END HERO-11 -->
+  <!-- CONTENT-3
+              ============================================= -->
+  <section id="content-3" class="content-3 wide-60 content-section division">
+    <div class="container">
+      <!-- SECTION TITLE -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="section-title title-01 mb-70">
+            <!-- Title -->
+            <h2 class="h2-md"> Security, Simplicity, Easiness</h2><!-- Text -->
+            <p class="p-xl"> Get better quality. Explore all of our AI tools to enhance and upscale
+              your photos. All-in-one AI toolkits to increase image resolution by smart enhancement
+              technology.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fbox-8-wrapper text-center">
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="pb-200 col">
+            <div id="one" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-enlarger-2-after.jpg"
+                  alt="enlarge small image after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-enlarger-2-before.jpg"
+                    alt="enlarge small image before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Index">
+                <h5 class="h5-md">AI Enlarger</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Enlarge and upscale image without losing quality. Support enlarging
+                by 200%, 400% and 800%.</p>
+            </div>
+          </div><!-- FEATURE BOX #2 -->
+          <div class="pb-200 col">
+            <div id="two" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-upscaler-2-after.jpg"
+                  alt="upscale image after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-upscaler-2-before.jpg"
+                    alt="upscale image before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="ImageUpscaler">
+                <h5 class="h5-md">AI Upscaler</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Customized and optimized upscaling algorithm for upscaling images
+                faster and in batch process.</p>
+            </div>
+          </div><!-- FEATURE BOX #3 -->
+          <div class="pb-200 col">
+            <div id="three" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-anime-enlarger-2-after.jpg"
+                  alt="upscale anime after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-anime-enlarger-2-before.jpg"
+                    alt="upscale anime before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Anime16K">
+                <h5 class="h5-md">AI Anime Upscaler</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Our AI Anime16K, upscale anime & cartoon pictures to 16k. Best
+                alternative tool to Waifu2x.</p>
+            </div>
+          </div>
+        </div><!-- End row -->
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="pb-200 col">
+            <div id="four" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-enhancer-2-after.jpg"
+                  alt="enhance image color after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-enhancer-2-before.jpg"
+                    alt="enhance image color before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Enhancer">
+                <h5 class="h5-md">AI Enhancer</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> With the help of AI, enhance and adjust colors and the light balance
+                of your images without any skills. Totally free!</p>
+            </div>
+          </div><!-- FEATURE BOX #2 -->
+          <div class="pb-200 col">
+            <div id="five" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-sharpener-2-after.jpg"
+                  alt="sharpen image after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-sharpener-2-before.jpg"
+                    alt="sharpen image before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Sharpener">
+                <h5 class="h5-md">AI Sharpener</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Deblur image with advanced and fast AI technology. Sharpen blurry
+                images while keeping quality.</p>
+            </div>
+          </div><!-- FEATURE BOX #3 -->
+          <div class="pb-200 col">
+            <div id="six" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-face-retouch-2-after.jpg"
+                  alt="retouch and deblur face after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-face-retouch-2-before.jpg"
+                    alt="retouch and deblur face before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Retouch">
+                <h5 class="h5-md">AI Face Retouch</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Retouch and fix the blurry face. Enhance the hair, eye, lips and skin
+                with just one click.</p>
+            </div>
+          </div>
+        </div><!-- End row -->
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="pb-200 col">
+            <div id="seven" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-background-remover-2-after.jpg"
+                  alt="remove background after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-background-remover-2-before.jpg"
+                    alt="remove background before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="BackgroundRemover">
+                <h5 class="h5-md">AI Background Remover</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Remove the background from image automatically. As low as $0.03 per
+                image. Support batch process.</p>
+            </div>
+          </div><!-- FEATURE BOX #2 -->
+          <div class="pb-200 col">
+            <div id="eight" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-denoiser-2-after.jpg"
+                  alt="denoise image after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-denoiser-2-before.jpg"
+                    alt="denoise image before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="Denoiser">
+                <h5 class="h5-md">AI Denoiser</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Powered by AI noise reduction technology, you can get rid of noise
+                from photo taken by digital camera.</p>
+            </div>
+          </div><!-- FEATURE BOX #3 -->
+          <div class="pb-200 col">
+            <div class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-cartoonizer-free-2.jpg" alt="cartoonize image"></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title -->
+              <h5 class="h5-md">AI Cartoonizer</h5><!-- Text -->
+              <p class="p-lg"> Free AI tool that converts your portrait and face photo to cartoon
+                style online. Time to update your cartoon profile.</p>
+            </div>
+          </div>
+        </div><!-- End row -->
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="pb-200 col">
+            <div id="nine" class="bal-container mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <div class="bal-after"><img class="rounded"
+                  src="/Images/before-after/ai-image-colorizer-2-after.jpg"
+                  alt="colorize photo after">
+                <div class="bal-afterPosition afterLabel"> After</div>
+              </div>
+              <div class="bal-before">
+                <div class="bal-before-inset"><img class="rounded"
+                    src="/Images/before-after/ai-image-colorizer-2-before.jpg"
+                    alt="colorize photo before">
+                  <div class="bal-beforePosition beforeLabel">Before</div>
+                </div>
+              </div>
+              <div class="bal-handle"><span class=" handle-left-arrow"></span><span
+                  class="handle-right-arrow"></span></div>
+            </div>
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Title --><a href="https://imagecolorizer.com" rel="nofollow">
+                <h5 class="h5-md">AI Photo Colorizer</h5>
+              </a><!-- Text -->
+              <p class="p-lg"> Add color to your black and white photos automatically. 100% free and
+                unlimited access. Bring old photos back to life.</p>
+            </div>
+          </div>
+        </div><!-- End row -->
+      </div>
+      <div class="top-row pt-50 pb-50">
+        <div class="row d-flex align-items-center">
+          <!-- TEXT BLOCK -->
+          <div class="col-md-7 col-lg-6 order-last order-lg-2">
+            <div class="txt-block left-column wow fadeInRight"
+              style="visibility: visible; animation-name: fadeInRight;">
+              <!-- Section ID --><span
+                class="section-id rounded-id bg-tra-purple purple-color txt-upcase"> Powered by AI
+                Enlarger</span><!-- Title -->
+              <h2 class="h2-xs"> Upscale images for better quality.</h2><!-- Text -->
+              <p class="p-lg"> AI Image Enlarger could upscale image size and increase resolution
+                without quality loss. Improve image quality by reducing noises and sharpening.</p>
+              <!-- Text -->
+              <p class="p-lg"> We train our SRCNN neural network with thousands of high-resolution
+                photos and enable our AI system to upscale and enhance photos automatically.</p>
+              <!-- TEXT BOX -->
+              <div class="txt-box mb-20">
+                <!-- Title -->
+                <h5 class="h5-lg"> Save Time on Photo Upscaling</h5><!-- Text -->
+                <p class="p-lg"> Enlarge image and create stunning photo with AI Image Enlarger that
+                  improves low-quality image and resize them for printing, presentation or on other
+                  devices. With our AI enlarger and enhancer, you can improve image quality so
+                  easily.</p>
+              </div>
+            </div>
+          </div><!-- END TEXT BLOCK -->
+          <!-- IMAGE BLOCK -->
+          <div class="col-md-5 col-lg-6 order-first order-md-2">
+            <div class="img-block left-column wow fadeInLeft"
+              style="visibility: visible; animation-name: fadeInLeft;"><img class="img-fluid"
+                src="/Images/Products/enlarger/ai-image-enlarger-3.png"
+                alt="enlarge image without losing quality"></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End container -->
+  </section><!-- END CONTENT-3 -->
+  <section id="tabs-2" class="tabs-section division">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
+        <!-- IMAGE BLOCK -->
+        <div class="col">
+          <div class="img-block right-column wow fadeInLeft"
+            style="visibility: visible; animation-name: fadeInLeft;">
+            <div class="tabs-content">
+              <!-- TAB #1 IMAGE -->
+              <div id="tab-1" class="tab-content current"><img class="img-fluid"
+                  src="/Images/Products/enlarger/ai-image-enlarger-4.png"
+                  alt="use ai image enlarger for personal and business"></div><!-- TAB #2 IMAGE -->
+              <div id="tab-2" class="tab-content"><img class="img-fluid"
+                  src="/Images/Products/enlarger/ai-image-enlarger-5.png"
+                  alt="use ai image enlarger for photography"></div><!-- TAB #3 IMAGE -->
+              <div id="tab-3" class="tab-content"><img class="img-fluid"
+                  src="/Images/Products/enlarger/ai-image-enlarger-6.png"
+                  alt="use ai image enlarger for e-commerce"></div><!-- TAB #3 IMAGE -->
+              <div id="tab-4" class="tab-content"><img class="img-fluid"
+                  src="/Images/Products/enlarger/ai-image-enlarger-7.png"
+                  alt="use ai image enlarger for cartoon anime lovers"></div>
+            </div>
+          </div>
+        </div><!-- END IMAGE BLOCK -->
+        <!-- TABS NAVIGATION -->
+        <div class="col">
+          <div class="tabs-nav clearfix">
+            <ul class="tabs-1">
+              <!-- TAB-1 LINK -->
+              <li class="tab-link current" data-tab="tab-1">
+                <!-- Title -->
+                <h5 class="h5-md">For Personal and Business Needs</h5><!-- Text -->
+                <p class="p-lg"> Automatically enhance and upscale your images, resize them without
+                  breaking the quality for any web, print format and social sharing.</p>
+              </li><!-- TAB-2 LINK -->
+              <li class="tab-link" data-tab="tab-2">
+                <!-- Title -->
+                <h5 class="h5-md">For Photographer</h5><!-- Text -->
+                <p class="p-lg"> Help you create high-resolution files for use in print production
+                  and be one of the mainstays of your workflow.</p>
+              </li><!-- TAB-3 LINK -->
+              <li class="tab-link" data-tab="tab-3">
+                <!-- Title -->
+                <h5 class="h5-md">For E-commerce Business</h5><!-- Text -->
+                <p class="p-lg"> Enhance the colors and light balance, upscale product photos for
+                  e-commerce business.</p>
+              </li><!-- TAB-3 LINK -->
+              <li class="tab-link" data-tab="tab-4">
+                <!-- Title -->
+                <h5 class="h5-md">For Cartoon & Anime Lovers</h5><!-- Text -->
+                <p class="p-lg"> Powerful AI tool produces higher cartoon/anime image resolution and
+                  better details.</p>
+              </li>
+            </ul>
+          </div>
+        </div><!-- END TABS NAVIGATION -->
+      </div><!-- End row -->
+    </div><!-- End container -->
+  </section>
+  <section id="content-9" class="content-9 bg-04 pt-100 content-section division">
+    <div class="container white-color">
+      <!-- SECTION TITLE -->
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="section-title title-02 mb-60">
+            <!-- Section ID --><span
+              class="section-id rounded-id bg-tra-white white-color txt-upcase"> Extremely
+              Flexible</span><!-- Title -->
+            <h2 class="h2-xs"> More powerful editing tools before using the AI technology</h2>
+          </div>
+        </div>
+      </div><!-- IMAGE BLOCK -->
+      <div class="row">
+        <div class="col">
+          <div class="content-9-img wow fadeInUp"
+            style="visibility: visible; animation-name: fadeInUp;">
+            <!-- Preview Image --><img class="img-fluid" src="/Images/png/photo-editor-bg.png"
+              alt="photo editor from imglarger">
+          </div>
+        </div>
+      </div>
+    </div><!-- End container -->
+  </section>
+  <section id="features-4" class="wide-60 features-section division">
+    <div class="container">
+      <!-- FEATURES-4 WRAPPER -->
+      <div class="fbox-4-wrapper fbox-4-wide">
+        <div class="row row-cols-1 row-cols-md-2">
+          <!-- FEATURE BOX #1 -->
+          <div class="col">
+            <div class="fbox-4 pr-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-resize"></span></div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Crop your photos</h5><!-- Text -->
+                <p class="p-lg"> Now you can crop your photo freely by enforcing a single or
+                  offering a range of crop aspect ratios before uploading to our AI servers.</p>
+              </div>
+            </div>
+          </div><!-- FEATURE BOX #2 -->
+          <div class="col">
+            <div class="fbox-4 pl-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-image"></span></div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Powerful Finetunes</h5><!-- Text -->
+                <p class="p-lg"> We provide full options that you can adjust the brightness,
+                  contrast, saturation, exposure, temperature, gamma, clarity and vignette before
+                  uploading.</p>
+              </div>
+            </div>
+          </div><!-- FEATURE BOX #3 -->
+          <div class="col">
+            <div class="fbox-4 pr-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-paint-roller"></span>
+                </div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Stunning Filters</h5><!-- Text -->
+                <p class="p-lg"> By using the in-build filter presets, you can apply them to make
+                  your picture look better before upscaling or enhancing them by AI.</p>
+              </div>
+            </div>
+          </div><!-- FEATURE BOX #4 -->
+          <div class="col">
+            <div class="fbox-4 pl-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-settings"></span></div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Add Annotations</h5><!-- Text -->
+                <p class="p-lg"> Have more fun with your pictures. Now, you can add sharpie, text,
+                  line, arrow, rectangle, and ellipse on the pictures.</p>
+              </div>
+            </div>
+          </div><!-- FEATURE BOX #5 -->
+          <div class="col">
+            <div class="fbox-4 pr-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-shield"></span></div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Protect Privacy by Redacting</h5><!-- Text -->
+                <p class="p-lg"> You can apply redaction to the image before uploading and protect
+                  your privacy if it is necessary. It is simple and only a few taps required.</p>
+              </div>
+            </div>
+          </div><!-- FEATURE BOX #6 -->
+          <div class="col">
+            <div class="fbox-4 pl-25 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Icon -->
+              <div class="fbox-ico">
+                <div class="fbox-ico-center ico-65"><span class="flaticon-dashboard"></span></div>
+              </div><!-- Text -->
+              <div class="fbox-txt">
+                <!-- Title -->
+                <h5 class="h5-md"> Add Photo Frames</h5><!-- Text -->
+                <p class="p-lg"> You can add frames to the pictures and make them outstanding. You
+                  can edit the frames by selecting and customizing the color, size and inset.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- END FEATURES-4 WRAPPER -->
+    </div><!-- End container -->
+  </section>
+  <section id="reviews-1" class="bg-whitesmoke-gradient wide-100 reviews-section division">
+    <div class="container">
+      <!-- SECTION TITLE -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="section-title title-01 mb-70">
+            <!-- Title -->
+            <h2 class="h2-md">Stories From Our Customers</h2><!-- Text -->
+            <p class="p-xl"> Learn the feedback from the users who are using our online image
+              enhancer to fix pixelated, blurry, and low-quality photos instantly.</p>
+          </div>
+        </div>
+      </div><!-- TESTIMONIALS CONTENT -->
+      <div class="row">
+        <div class="col">
+          <div class="owl-carousel owl-theme reviews-1-wrapper owl-loaded owl-drag">
+            <div class="owl-stage-outer">
+              <div class="owl-stage"
+                style="transform: translate3d(-4752px, 0px, 0px); transition: all 1.5s ease 0s; width: 6912px;">
+                <div class="owl-item cloned" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">AI Image Enlarger promises that its upscaling technology
+                        produces high-quality results that preserve the quality of the source
+                        image.AI Image Enlarger improves the quality of images that you enlarge. The
+                        quality of output certainly improves when you use the service;</p>
+                      <!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Martin Brinkmann</h6>
+                          <p class="p-md">Owner of Ghacks</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item cloned" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">AI Image Enlarger allows you to scale images up to 800% and
+                        enhance photos without losing quality, which is especially useful for
+                        photographers and graphic designers.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl"><a
+                              href="https://fixthephoto.com/ai-image-enlarger-review.html">Eva
+                              Williams</a></h6>
+                          <p class="p-md">Editor of Fixthephoto</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item cloned" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">Wonderful AI Image Enlarger online tool. Enlarge your images
+                        without losing quality, based on their SRCNN structure and optimized
+                        hardware. Super fast.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Nancystinson</h6>
+                          <p class="p-md">Product Hunter</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item cloned" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">In simple terms, it details the tiny part of images in high
+                        resolution, so yes.; it is a good project</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Laurent Amaechi Jude</h6>
+                          <p class="p-md">ProductHunt User</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">Impressed when making some high resolution wallpaper for my
+                        Windows computer. I signed up a free account and the results are amazing</p>
+                      <!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Rick Streeter</h6>
+                          <p class="p-md">ProductHunt User</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">Upscale and enhance your small and low-definition
+                        images/photos easier than ever! With AI Image Enlarger software you can Easy
+                        to upscale and enhance your small and LD images.</p>
+                      <!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Nick H.</h6>
+                          <p class="p-md">Editor of Filehorse</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">Imglarger, basically known as AI Image Enlarger is the best
+                        online tool powered by AI (Artificial Intelligence) that helps you in
+                        scaling your images without losing its quality.</p>
+                      <!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">SARMAD NADEEM</h6>
+                          <p class="p-md">Editor of Trenstorys</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">AI Image Enlarger aims to fix the issues which plague other
+                        similar tools, such as a blurry photo, slow and inefficient algorithms,
+                        limited support etc. It’s not platform specific – instead, you can use it on
+                        Windows, Mac, iOS and Android.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Christian</h6>
+                          <p class="p-md">Accuratereviews</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">AI Image Enlarger can upscale and enhance images that are
+                        small in size (ranging from no more than 3.5Mb for the .exe file and less
+                        than 1Mb for .dmg file). Also, it limits the type of images that you can
+                        process.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">HemantS</h6>
+                          <p class="p-md">thewindowsclub</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">This is the best app that I have ever installed. I use this
+                        app to increase image size of picture I use for my tattoos. Im a tattoo
+                        artist by the way.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Nina Lehner</h6>
+                          <p class="p-md">User from GooglePlay</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">I tried a couple of different image enlarging apps, but none
+                        of them compared to this one. I'm glad I stumbled onto it. It performs a
+                        wonderful job of keeping the quality of the original image. I highly
+                        recommend people to download it.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Berry Berger</h6>
+                          <p class="p-md">User from GooglePlay</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item active" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">One of my most used apps. I've utilized it on a large number
+                        of photos. Fantastic outcomes on the majority of them. I very much recommend
+                        it.</p><!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Brina and Daddy Man</h6>
+                          <p class="p-md">User from AppStore</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+                <div class="owl-item cloned active" style="width: 432px;">
+                  <div class="review-1">
+                    <!-- Quote Icon -->
+                    <div class="review-1-ico ico-25"><span class="flaticon-left-quote"></span></div>
+                    <!-- Text -->
+                    <div class="review-1-txt">
+                      <!-- Text -->
+                      <p class="p-lg">This app allows me to increase the size of my images. It
+                        enables you to enlarge photos without compromising their quality. If you're
+                        looking for a comparable experience, download the app.​</p>
+                      <!-- Testimonial Author -->
+                      <div class="author-data clearfix">
+                        <!-- Testimonial Author -->
+                        <div class="review-author">
+                          <h6 class="h6-xl">Mckeown Balfe</h6>
+                          <p class="p-md">User from AppStore</p><!-- Rating -->
+                          <div class="review-rating ico-15 yellow-color"><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-1"></span><span
+                              class="flaticon-star-half-empty"></span></div>
+                        </div>
+                      </div><!-- End Testimonial Author -->
+                    </div><!-- End Text -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- END TESTIMONIALS CONTENT -->
+    </div><!-- End container -->
+  </section>
+  <div id="brands-2" class="pb-70 brands-section division">
+    <div class="container">
+      <!-- BRANDS TITLE -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="brands-title text-center">
+            <p class="p-xl">These guys are using Imglarger and they are more than happier ever</p>
+          </div>
+        </div>
+      </div><!-- BRANDS-2 WRAPPER -->
+      <div class="brands-2-wrapper">
+        <div class="row justify-content-md-center row-cols-2 row-cols-sm-3 row-cols-md-5">
+          <!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-1.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-2.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-3.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-4.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-5.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-8.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-7.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-5.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-8.png" alt="brand-logo"></a></div>
+          </div><!-- BRAND LOGO IMAGE -->
+          <div class="col">
+            <div class="brand-logo"><a href="#"><img class="img-fluid"
+                  src="/Images/png/brand/brand-2.png" alt="brand-logo"></a></div>
+          </div>
+        </div>
+      </div><!-- END BRANDS-2 WRAPPER -->
+    </div><!-- End container -->
+  </div>
+  <section id="features-8" class="wide-60 features-section division">
+    <div class="container">
+      <!-- SECTION TITLE -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="section-title title-01 mb-70">
+            <!-- Title -->
+            <h2 class="h2-md"> We’re Better. Here’s Why…</h2><!-- Text -->
+            <p class="p-xl"> Read our high-quality blog articles and case studies. Learn more about
+              tips of enhancing and upscaling photos.
+              <a class="url text-primary" href="https://imglarger.com/blog" target="_blank"> All
+                Articles
+                -> </a>.
+            </p>
+          </div>
+        </div>
+      </div><!-- FEATURES-8 WRAPPER -->
+      <div class="fbox-8-wrapper text-center">
+        <div class="row row-cols-1 row-cols-md-3">
+          <!-- FEATURE BOX #1 -->
+          <div class="col">
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Image -->
+              <div class="fbox-img bg-whitesmoke-gradient"><a
+                  href="https://imglarger.com/blog/how-to-get-a-high-resolution-wallpaper-for-your-computer/"><img
+                    class="img-fluid" src="/Images/svg/blog-3.svg" alt="imglarger blog 3"></a></div>
+              <!-- Title -->
+              <h5 class="h5-md"><a
+                  href="https://imglarger.com/blog/how-to-get-a-high-resolution-wallpaper-for-your-computer/">
+                  How to Get A High-Resolution Wallpaper</a></h5><!-- Text -->
+              <p class="p-lg">You can make your computer more personalized by using custom and
+                high-resolution wallpapers…</p>
+            </div>
+          </div><!-- FEATURE BOX #2 -->
+          <div class="col">
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Image -->
+              <div class="fbox-img bg-whitesmoke-gradient"><a
+                  href="https://imglarger.com/blog/8-ways-to-create-good-photos-like-a-pro/"><img
+                    class="img-fluid" src="/Images/svg/blog-1.svg" style="max-height:231px"
+                    alt="imglarger blog 1"></a></div><!-- Title --><a
+                href="https://imglarger.com/blog/8-ways-to-create-good-photos-like-a-pro/">
+                <h5 class="h5-md"> 8 Ways to Create Good Photos Like a Pro</h5>
+              </a><!-- Text -->
+              <p class="p-lg">A good photo is worth a thousand words. However, a bad photo can be an
+                eyesore or just plain…</p>
+            </div>
+          </div><!-- FEATURE BOX #3 -->
+          <div class="col">
+            <div class="fbox-8 mb-40 wow fadeInUp"
+              style="visibility: visible; animation-name: fadeInUp;">
+              <!-- Image -->
+              <div class="fbox-img bg-whitesmoke-gradient"><a
+                  href="https://imglarger.com/blog/how-to-get-a-jpg-file-with-high-resolution-tools-and-tips/"><img
+                    class="img-fluid" src="/Images/svg/blog-2.svg" alt="imglarger blog 2"></a></div>
+              <!-- Title --><a
+                href="https://imglarger.com/blog/how-to-get-a-jpg-file-with-high-resolution-tools-and-tips/">
+                <h5 class="h5-md"> How to Get a JPG File with High Resolution</h5>
+              </a><!-- Text -->
+              <p class="p-lg">It is a picture that can say a thousand words. Visuals have never been
+                more powerful…</p>
+            </div>
+          </div>
+        </div><!-- End row -->
+      </div><!-- END FEATURES-8 WRAPPER -->
+    </div><!-- End container -->
+  </section>
+  <script id="template-upload"
+    type="text/x-tmpl">    {% for (var i=0, file; file=o.files[i]; i++) { %}<tr class="template-upload fade" data-row="alg-{%= ( (file.name).trim() ).replace(/\s/g, '').toLowerCase() %}"><td><span class="preview hide"></span></td><td style="max-width: 100px;">            {% if (window.innerWidth >480 || !o.options.loadImageFileTypes.test(file.type)) { %}
+              <p class="name mb-0" style="font-size:15px;max-width:100px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{%=file.name%}</p>            {% } %}
+              <strong class="error text-danger" style="font-size:12px;max-width:100px;overflow: hidden;font-weight:400"></strong></td><td id="mobile_table_size"><p class="size gr-text-11 mb-0"></p></td><td class="title td_title hide" id="mobile_table_2"><div class="radio"><input id="AlgChoice3-{%= ( (file.name).trim() ).replace(/\s/g, '').toLowerCase() %}" name="Alg-{%= ( (file.name).trim() ).replace(/\s/g, '').toLowerCase() %}" type="radio" class="type-radio" data-title="High-Grade" value="slow" checked><label for="AlgChoice3-{%= ( (file.name).trim() ).replace(/\s/g, '').toLowerCase() %}" class="radio-label" style="width:160px; font-size: 14px;overflow: hidden;text-overflow: ellipsis; line-height: 14px; ">High</label></div></td><td class="title td_title"><!-- new --><select class="select select-Uploader"><option value="2">2x</option><option value="4">4x</option><option value="8" {% if (disable==true) { %}class='hide' {% } %}>8x</option></select><!-- /new --></td><td><!-- <img class="loader_svg hide" src="img/loader.svg" />-->            <div class="upload_gif gif-div hide">uploading</div><!--<img class="cancel cancel-img hide" src="img/delete.svg" style="margin-left:10px;width:20px;height:20px;display:inline-block" />-->            {% if (!o.options.autoUpload && o.options.edit && o.options.loadImageFileTypes.test(file.type)) { %}<button title="Edit image before using AI" class="btn btn-Uploader btn-green text-white edit edit-btn" data-index="{%=i%}" disabled><img src="../../Images/svg/edit.svg" style="color:white" width="20" alt="edit image"><span>Edit</span></button>{% } %}
+              {% if (!i && !o.options.autoUpload) { %}<button title="Upload image for AI processing" class="btn btn-Uploader btn-skyblue btn-Start-Button start" disabled><img src="../../Images/svg/start.svg" width="20" alt="upload image"><span>Start</span></button>{% } %} {% if (!i) { %}<button title="Remove current image" class="btn btn-Uploader cancel cancel-btn" style="padding:0px"><img src="../../Images/svg/cancel.svg" width="20" alt="remove image"></button>{% } %}</td></tr>{% } %}</script>
+  <!-- The template to display files available for download -->
+  <script id="template-download"
+    type="text/x-tmpl">    {% for (var i=0, file; file=o.files[i]; i++) { %}<tr class="template-download fade" data-row="alg-{%= ( (file.name).trim() ).replace(/\s/g, '').toLowerCase() %}"><td id="mobile_table_preview_down"><span class="preview hide">                {% if (file.thumbnailUrl) { %}<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>{% } %}</span></td><td {% if (file.error) { %} class="error" {% } %}>            {% if (window.innerWidth >480 || !file.thumbnailUrl) { %}
+              <p class="name" style="width:100px; margin: 0px auto !important; font-size: 14px; overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">                {% if (file.url) { %}
+                  <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>                {% } else { %}
+                  <span>{%=file.name%}</span>{% } %}
+              </p>            {% } %} {% if (file.error) { %}
+              <!--<div><span class="label label-danger">Error</span>{%=file.error%}</div>-->{% } %}</td><td id="mobile_table_down"><span class="size">{%=o.formatFileSize(file.size)%}</span></td><td class="alg hide" id="mobile_table_2_down"></td><td class="scales hide" id="mobile_table_3_down"></td><td><!--<img class="loader_svg preview_loader" src="../img/loader.svg" />--><!--<div class="waiting_gif hide"><img src="../img/stepBar/waiting.gif"/>waiting</div>--><!--<div class="progress_gif hide"><img src="../img/stepBar/progressing.gif"/>progressing</div>-->            <div class="waiting_gif gif-div hide">waiting</div><div class="progress_gif gif-div hide">progressing</div><div class="error_gif gif-div hide">Failed to upload</div><a class="btn btn-Uploader btn-green btn-Start-Button preview-image hide" target="_blank" download title="Right click and choose 'Save link as'"><img src="../../Images/svg/download.svg" width="20" alt="download image"><span>Download</span></a></td></tr>{% } %}</script>
+  <!-- JS Files -->
+  <script src="/Scripts/blueimp/tmpl.min.js"></script>
+  <script src="/Scripts/blueimp/load-image.all.min.js"></script>
+  <script src="/Scripts/blueimp/canvas-to-blob.min.js"></script>
+  <script src="/Tools/js/pintura-editor.js" type="module"></script>
+  <div class="extra_convas"></div>
+  <div class="extra_type"></div>
+  <div class="extra_scale"></div>
+  <section id="cta-3" class="cta-section division" style="">
+    <div class="cta-3-holder bg-lightgrey">
+      <div class="container">
+        <div class="bg-white cta-3-wrapper">
+          <div class="row d-flex align-items-center">
+            <!-- CALL TO ACTION TEXT -->
+            <div class="col-lg-7 col-lg-8">
+              <div class="cta-3-txt">
+                <h4 class="h4-xl">Start free trial and get 8 free credits. Pick a plan later</h4>
+              </div>
+            </div><!-- CALL TO ACTION BUTTON -->
+            <div class="col-lg-4">
+              <div class="text-end">
+                <div class="cta-3-btn text-center"><a href="Pricing"
+                    class="btn btn-skyblue tra-grey-hover">Get Started Now</a>
+                  <p><a href="FAQ">Read The FAQs</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End row -->
+      </div><!-- End container -->
+    </div>
+  </section>
+  <!-- FOOTER-2
+              ============================================= -->
+  <footer id="footer-1" class="bg-snow footer division">
+    <div class="container">
+      <!-- FOOTER CONTENT -->
+      <div class="row">
+        <!-- FOOTER INFO -->
+        <div class="col-lg-4">
+          <div class="footer-info mb-40">
+            <!-- Footer Logo --><img class="footer-logo mb-25" src="/Images/Logo/v-logo-dark.png"
+              alt="footer-logo"><!-- Text -->
+            <p class="p-md"> In 2018, AI Image Enlarger has become one of the best all-in-one AI
+              solution providers, trusted by more than 1,000,000 users from 60 countries. All of our
+              team members value each of our clients and be ready to provide the best services and
+              solutions.</p><!-- Title -->
+            <h6 class="h6-xl"> Office Address</h6>
+            <p class="p-sm">OFFICE UNIT B ON 9/F THOMSON COMMERCIAL BUILDING 8 THOMSON ROAD HONG
+              KONG</p>
+          </div>
+        </div><!-- FOOTER LINKS -->
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="footer-links mb-40">
+            <!-- Title -->
+            <h6 class="h6-xl">Company</h6><!-- Footer Links -->
+            <ul class="foo-links text-secondary clearfix">
+              <li>
+                <p class="p-md"><a href="#">About Us</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Contact">Contact Us</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="FAQ">Help & FAQs</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imglarger.com/blog">Blogs</a></p>
+              </li>
+            </ul>
+          </div>
+        </div><!-- FOOTER LINKS -->
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="footer-links mb-40">
+            <!-- Title -->
+            <h6 class="h6-xl"> Solutions</h6><!-- Footer List -->
+            <ul class="foo-links text-secondary clearfix">
+              <li>
+                <p class="p-md"><a href="Index">AI Image Enlarger</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="ImageUpscaler">AI Image Upscaler</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Anime16K">Anime16K</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Enhancer">AI Image Enhancer</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Denoiser">AI Image Denoiser</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Sharpener">AI Image Sharpener</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Retouch">AI Face Retouch</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="BackgroundRemover">AI Bg Eraser</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imagecolorizer.com" rel="nofollow">AI Photo
+                    Colorizer</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="Cartoonizer">AI Cartoonizer</a></p>
+              </li>
+            </ul>
+          </div>
+        </div><!-- FOOTER LINKS -->
+        <div class="col-sm-6 col-md-4 col-lg-2">
+          <div class="footer-links mb-40">
+            <!-- Title -->
+            <h6 class="h6-xl"> Apps</h6><!-- Footer List -->
+            <ul class="foo-links text-secondary clearfix">
+              <li>
+                <p class="p-md"><a href="Apps">AI Enlarger<sup
+                      style=" color: #ff523d; font-size: 0.8rem; position: relative; top: -8px; left: 1px;">ios/android</sup></a>
+                </p>
+              </li>
+              <li>
+                <p class="p-md"><a href="PhotoAI">Photo AI Mac</a><sup
+                    style=" color: #ff523d; font-size: 0.8rem; position: relative; top: -8px; left: 1px;">mac</sup></a>
+                </p>
+              </li>
+              <li>
+                <p class="p-md"><a href="PhotoAIApp">PhotoAI</a><sup
+                    style=" color: #ff523d; font-size: 0.8rem; position: relative; top: -8px; left: 1px;">ios/android</sup></a>
+                </p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imagetocartoon.com/app.html"
+                    rel="nofollow">Cartoonize</a><sup
+                    style=" color: #ff523d; font-size: 0.8rem; position: relative; top: -8px; left: 1px;">ios/android</sup></a>
+                </p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imagecolorizer.com/app.html"
+                    rel="nofollow">Colorize</a><sup
+                    style=" color: #ff523d; font-size: 0.8rem; position: relative; top: -8px; left: 1px;">ios/android</sup></a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div><!-- FOOTER LINKS -->
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="footer-links mb-40">
+            <!-- Title -->
+            <h6 class="h6-xl"> Support</h6><!-- Footer Links -->
+            <ul class="foo-links text-secondary clearfix">
+              <li>
+                <p class="p-md"><a href="https://imglarger.com/blog/privacy-policy/">Privacy
+                    Policy</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imglarger.com/blog/terms">Terms of Use</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a href="https://imglarger.com/sitemap.xml">SiteMap</a></p>
+              </li>
+              <li>
+                <p class="p-md"><a
+                    href="/cdn-cgi/l/email-protection#44373134342b3630042d29232825362321366a272b29">Support
+                    Team: support[#]imglarger.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- END FOOTER CONTENT -->
+      <hr><!-- BOTTOM FOOTER -->
+      <div class="bottom-footer">
+        <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
+          <!-- FOOTER COPYRIGHT -->
+          <div class="col">
+            <div class="footer-copyright">
+              <p>2022. AI.Image.Enlarger. All Rights Reserved</p>
+            </div>
+          </div><!-- BOTTOM FOOTER LINKS -->
+          <div class="col">
+            <ul class="bottom-footer-list text-secondary text-end">
+              <li>
+                <p><a href="https://twitter.com/Steven_Strange_" rel="nofollow">Twitter</a></p>
+              </li>
+            </ul>
+          </div>
+        </div><!-- End row -->
+      </div><!-- BOTTOM FOOTER -->
+    </div>
+  </footer>
+  <script data-cfasync="false"
+    src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="/bundles/jquery?v=_0-Kv0TaVxWVIxkFCu7itT6QLDHG52_T9BhpvzBAD-c1"></script>
+  <script src="/Scripts/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="/bundles/jquery-fileupload?v=OkfTc4fl5jk-u_-O7XBm53-xlU4kneqDx4AqYClfiY41"></script>
+  <script src="/bundles/tools/upscaler?v=cOtkKNgtxbYhwLWXZl7W5qhA_OcJ9EhWxc2PX1IbOdA1"></script>
+  <script src="/bundles/notification?v=DP49XwhAHtfHxJpzfeC4YbCfD3YS969WzBLvCSaVFfo1"></script>
+  <script src="/bundles/common?v=oiIfZCrHOVtOJQueXxEM0a--3b23_fUxcXvazZnYpww1"></script>
+  <script>new BeforeAfter({
+      id: '#banner'
+    });
+    new BeforeAfter({
+      id: '#one'
+    });
+    new BeforeAfter({
+      id: '#two'
+    });
+    new BeforeAfter({
+      id: '#three'
+    });
+    new BeforeAfter({
+      id: '#four'
+    });
+    new BeforeAfter({
+      id: '#five'
+    });
+    new BeforeAfter({
+      id: '#six'
+    });
+    new BeforeAfter({
+      id: '#seven'
+    });
+    new BeforeAfter({
+      id: '#eight'
+    });
+    new BeforeAfter({
+      id: '#nine'
+    });
+    new BeforeAfter({
+      id: '#waifu-compare'
+    });
+    new BeforeAfter({
+      id: '#waifu-compare-2'
+    });</script><!-- Start of LiveChat (www.livechatinc.com) code -->
+  <script>        window.__lc = window.__lc || {};
+    window.__lc.license = 13212585;
+    ; (function (n, t, c) { function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) } var e = { _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () { i(["once", c.call(arguments)]) }, off: function () { i(["off", c.call(arguments)]) }, get: function () { if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load."); return i(["get", c.call(arguments)]) }, call: function () { i(["call", c.call(arguments)]) }, init: function () { var n = t.createElement("script"); n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n) } }; !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e }(window, document, [].slice))</script>
+  <noscript><a href="https://www.livechatinc.com/chat-with/13212585/" rel="nofollow">Chat with
+      us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow"
+      target="_blank">LiveChat</a></noscript><!-- End of LiveChat code -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script>window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-88278909-15');</script><!-- Google Ads -->
+</body>
+
 </html>
