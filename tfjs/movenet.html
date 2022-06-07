@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MoveNet Demo</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+</head>
+
+<body>
+    <div id="msg">MoveNet Demo</div>
+</body>
+
+</html>
+<script>
+    const ScoreThreshold = 0.5;
+
+    let detector;
+    let poses;
+    let video;
+    let video_file = "videos/yoga.mp4";
+
+    async function init() {
+        console.log("initializing");
+        const detectorConfig = {
+            modelType: poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING,
+        };
+        detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig);
+    }
+
+    async function videoReady() {
+        console.log("video ready");
+        await getPoses();
+    }
+
+    async function setup() {
+        await init();
+        video = createVideo(video_file, onVideoLoad);
+        video.hide();
+        // createButton('Play').mousePressed(getPoses);
+        console.log("setup complete");
+    }
+
+    async function onVideoLoad() {
+        createCanvas(video.width, video.height);
+        // createCanvas(640, 360);
+        // textSize(16);
+        // textAlign(CENTER, CENTER);
+
+
+        video.autoplay();
+        video.play();
+        video.volume(0.1);
+        console.log("video ready");
+        await getPoses();
+    }
+
+
+    async function getPoses() {
+        poses = await detector.estimatePoses(video.elt);
+        setTimeout(getPoses, 0);
+    }
+
+    let first = true;
+
+    function mouseClicked() {
+        console.log(poses);
+        video.play();
+    }
+
+    const skeleton = [[0, 1], [0, 2], [1, 3], [2, 4], [0, [6, 5]], [6, 5], [5, 7], [6, 8], [7, 9], [8, 10], [[5, 6], [11, 12]], [[11, 12], 11], [[11, 12], 12], [11, 13], [12, 14], [13, 15], [14, 16],];
+
+    function getKeypointForEdgeVertex(keypoints, vertex) {
+        if (typeof vertex === "number") {
+            const { x, y, score } = keypoints[vertex];
+            if (score > ScoreThreshold) {
+                return { x, y };
+            }
+        } else if (vertex instanceof Array) {
+            const points = vertex.map(v => keypoints[v]);
+            if (points.every(kp => kp.score > ScoreThreshold)) {
+                const { x, y } =
+                    // Average the points
+                    points.reduce(
+                        (acc, v) => ({ x: (acc.x * acc.w + v.x) / (acc.w + 1), y: (acc.y * acc.w + v.y) / (acc.w + 1), w: acc.w + 1 }),
+                        { x: 0, y: 0, w: 0 }
+                    );
+                return { x, y };
+            }
+        }
+    }
+
+    function draw() {
+        if (first) {
+            console.log("drawing");
+            first = false;
+        }
+        background(255);
+        if (video) {
+            image(video, 0, 0);
+            if (poses && poses.length > 0) {
+                //console.log(poses[0].keypoints.length)
+                //console.log(poses[0].keypoints[0].x);
+                stroke(255, 255, 255);
+                strokeWeight(2);
+                for (let edge of skeleton) {
+                    let start = getKeypointForEdgeVertex(poses[0].keypoints, edge[0]);
+                    let end = getKeypointForEdgeVertex(poses[0].keypoints, edge[1]);
+                    if (start && end) line(start.x, start.y, end.x, end.y);
+                }
+
+                for (let i = 0; i < poses[0].keypoints.length; i++) {
+                    const { x, y, score } = poses[0].keypoints[i];
+                    // console.log(kp);
+                    if (score > ScoreThreshold) {
+                        fill(255, 0, 0);
+                        stroke(255);
+                        strokeWeight(1);
+                        circle(x, y, 8);
+                        // circle(x, y, 16);
+
+                        // push();
+                        // fill(255);
+                        // noStroke();
+                        // text(`${i}`, x, y);
+                        // pop();
+                    }
+                }
+            }
+
+        }
+        noStroke();
+        textSize(16);
+        fill(255, 255, 255);
+        text("FPS: " + int(getFrameRate()), 10, 20);
+        // fill(255, 255, 255);
+    }
+</script>

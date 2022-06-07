@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>coco ssd</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <style>
+        video {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="detect_result"></canvas>
+    <video autoplay playsinline muted id="webcam"></video>
+
+</body>
+<script>
+    async function app() {
+        const model = await cocoSsd.load();
+        const webcamElement = document.getElementById('webcam');
+        const canvas = document.getElementById('detect_result');
+        const context = canvas.getContext('2d');
+
+        const color = ["green", "yellow", "red"]
+
+        let showResult = async function () {
+            const result = await model.detect(webcamElement);
+            canvas.width = webcamElement.videoWidth;
+            canvas.height = webcamElement.videoHeight;
+            context.drawImage(webcamElement, 0, 0);
+            context.font = '24px Arial';
+
+            for (let i = 0; i < result.length; i++) {
+                context.beginPath();
+                //three dots mean spread over object get all its properties
+                context.rect(...result[i].bbox);
+                context.lineWidth = 3;
+                context.strokeStyle = color[i % 3];
+                context.fillStyle = color[i % 3];
+                context.stroke();
+                context.fillText(
+                    result[i].class + " (" + result[i].score.toFixed(3) + ")",
+                    result[i].bbox[0],
+                    result[i].bbox[1] - 5);
+            }
+            setTimeout(function () {
+                showResult();
+            }, 300);
+        }
+        let setupWebcam = function () {
+            return new Promise((resolve, reject) => {
+                const navigatorAny = navigator;
+                navigator.getUserMedia = navigator.getUserMedia ||
+                    navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia ||
+                    navigatorAny.msGetUserMedia;
+                if (navigator.getUserMedia) {
+                    navigator.getUserMedia({
+                        video: true
+                    },
+                        (stream) => {
+                            webcamElement.srcObject = stream;
+                            webcamElement.addEventListener('loadeddata', () => resolve(), false);
+                        },
+                        (err) => reject(err));
+                } else {
+                    reject("getUserMedia failed");
+                }
+            });
+        }
+        setupWebcam().then(
+            () => {
+                showResult();
+            },
+            (err) => {
+                console.log(err);
+            }
+        )
+    }
+    app();
+</script>
