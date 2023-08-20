@@ -2,42 +2,16 @@
 <html lang="zh-Hant-TW">
 
 <head>
-  <title>Taiwan COVID-19</title>
+  <title>MyData</title>
   <meta charset="utf-8" />
-  <style>
-    #chartdiv_009_fix,
-    #chartdiv_001_7dayConfirmed {
-      width: 100%;
-      height: 400px;
-    }
-  </style>
-  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-  <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
-  <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
-  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-  <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
-
-  <script src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_009_fix.min.js"></script>
-  <script
-    src="https://covid-19.nchc.org.tw/amchartsSource/output/chartdiv_001_7dayConfirmed.min.js"></script>
-
 </head>
 
 <body>
+  <h1>路口即時影像</h1>
+  <img data-src="https://trafficvideo2.tainan.gov.tw/af8c7151" src="https://trafficvideo2.tainan.gov.tw/af8c7151?t=0.4289218058661737" alt="即時影像" class="video_obj" style="width:100%;max-width:640px;max-height:360px;" />
   <p><iframe
       src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&facet=none&pickerSort=asc&pickerMetric=location&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=true&Color+by+test+positivity=false&country=TWN~CHN~USA~JPN~KOR~FRA~DEU~ITA"
       style="width:100%;height:660px; border: 0px none;"></iframe></p>
-
-  <h1 style="text-align: center;">COVID-19 各項統計資料</h1>
-  資料來源：NCHC國家高速網路與計算中心<br>
-
-  <hr>
-  <h3>台灣 COVID-19 疫情每日統計圖</h3>
-  <div id="chartdiv_009_fix"></div>
-  <hr>
-  <h3>COVID-19 七日平均確診數</h3>
-  <div id="chartdiv_001_7dayConfirmed"></div>
 
 </body>
 
