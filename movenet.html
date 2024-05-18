@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoveNet Demo</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/4.19.0/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <style>
+      * {
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+        border: 2px solid black;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 4px;
+        vertical-align: top;
+        text-align: right;
+      }
+
+      #msg {
+        position: absolute;
+        left: 10px;
+        top: 40px;
+      }
+
+      #canvas {
+        position: absolute;
+        left: 250px;
+        top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="title">MoveNet Demo</div>
+    <div id="msg">keypoints</div>
+    <div id="canvas"></div>
+  </body>
+</html>
+<script>
+  const ScoreThreshold = 0.5;
+
+  let model_type;
+  let model_string = "SINGLEPOSE_LIGHTNING";
+  let detector;
+  let poses;
+  let video;
+  let input;
+  let cnv;
+  let vidoePlaying = false;
+
+  async function init() {
+    switch (model_string) {
+      case "SINGLEPOSE_THUNDER":
+        model_type = poseDetection.movenet.modelType.SINGLEPOSE_THUNDER;
+        break;
+      case "MULTIPOSE_LIGHTNING":
+        model_type = poseDetection.movenet.modelType.MULTIPOSE_LIGHTNING;
+        break;
+      case "SINGLEPOSE_LIGHTNING":
+      default:
+        model_type = poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING;
+        break;
+    }
+    $("#title").html("MoveNet " + model_string + " Demo");
+    const detectorConfig = { modelType: model_type };
+    const model_name = poseDetection.SupportedModels.MoveNet;
+    detector = await poseDetection.createDetector(model_name, detectorConfig);
+    console.log("model: " + model_name + " load complete");
+  }
+
+  async function doOnended() {
+    await noLoop();
+  }
+
+  async function handleFile(file) {
+    // if (video) video = null;
+    // video = null;
+    // noLoop();
+    $("#msg").html("keypoints");
+    if (file.type === "video") {
+      video = createVideo(file.data, videoReady);
+      video.volume(0);
+      video.play();
+      vidoePlaying = true;
+      loop();
+    } else {
+      video = null;
+    }
+    video.onended(doOnended);
+  }
+
+  async function videoReady() {
+    video.hide();
+    // cnv = createCanvas(video.width, video.height);
+    cnv = createCanvas(video.width, video.height).parent("canvas");
+    cnv.mouseClicked(playPause);
+    console.log("video ready");
+    await getPoses();
+  }
+
+  async function setup() {
+    await init();
+
+    // video = createCapture(VIDEO, videoReady);
+
+    input = createFileInput(handleFile);
+    input.position(400, 4);
+
+    console.log("setup complete");
+  }
+
+  async function getPoses() {
+    poses = await detector.estimatePoses(video.elt);
+    setTimeout(getPoses, 0);
+  }
+
+  function playPause() {
+    if (vidoePlaying) {
+      video.pause();
+      vidoePlaying = false;
+    } else {
+      video.play();
+      vidoePlaying = true;
+    }
+    console.log("vidoePlaying:" + vidoePlaying);
+  }
+
+  function mouseClicked() {
+    console.log(poses);
+  }
+
+  const skeleton = [
+    [0, 1],
+    [0, 2],
+    [1, 3],
+    [2, 4],
+    [0, [6, 5]],
+    [6, 5],
+    [5, 7],
+    [6, 8],
+    [7, 9],
+    [8, 10],
+    [
+      [5, 6],
+      [11, 12],
+    ],
+    [[11, 12], 11],
+    [[11, 12], 12],
+    [11, 13],
+    [12, 14],
+    [13, 15],
+    [14, 16],
+  ];
+
+  function getKeypointForEdgeVertex(keypoints, vertex) {
+    if (typeof vertex === "number") {
+      const { x, y, score } = keypoints[vertex];
+      if (score > ScoreThreshold) {
+        return { x, y };
+      }
+    } else if (vertex instanceof Array) {
+      const points = vertex.map((v) => keypoints[v]);
+      if (points.every((kp) => kp.score > ScoreThreshold)) {
+        const { x, y } =
+          // Average the points
+          points.reduce(
+            (acc, v) => ({
+              x: (acc.x * acc.w + v.x) / (acc.w + 1),
+              y: (acc.y * acc.w + v.y) / (acc.w + 1),
+              w: acc.w + 1,
+            }),
+            { x: 0, y: 0, w: 0 }
+          );
+        return { x, y };
+      }
+    }
+  }
+
+  function draw_keypoint(keypoints, score_thresh = 0.3) {
+    keypoints.forEach(function (keypoint, index) {
+      const { x, y, score } = keypoint;
+      if (score > score_thresh) {
+        skeleton.forEach(function (edge) {
+          let start = getKeypointForEdgeVertex(keypoints, edge[0]);
+          let end = getKeypointForEdgeVertex(keypoints, edge[1]);
+          if (start && end) line(start.x, start.y, end.x, end.y);
+        });
+
+        fill(255, 0, 0);
+        stroke(255);
+        strokeWeight(1);
+        circle(x, y, 16);
+        fill(255);
+        noStroke();
+        textSize(12);
+        textAlign(CENTER, CENTER);
+        text(index, x, y);
+      }
+    });
+  }
+
+  function draw() {
+    background(255);
+    if (video) {
+      image(video, 0, 0);
+      if (poses && poses.length > 0) {
+        // if (poses) {
+        poses.forEach(function (pose, people) {
+          if (people == 0) {
+            stroke(0, 255, 0);
+            strokeWeight(2);
+            outKeypoints(pose.keypoints);
+          }
+          draw_keypoint(pose.keypoints);
+        });
+      }
+      displayFPS();
+    }
+  }
+
+  function outKeypoints(keypoints) {
+    let str = "";
+    let fontColor = "black";
+    for (let i = 0; i < keypoints.length; i++) {
+      const { x, y, score } = keypoints[i];
+      if (score > ScoreThreshold) {
+        fontColor = "black";
+      } else {
+        fontColor = "red";
+      }
+      str +=
+        "<tr><td>" +
+        i +
+        '</td><td><font color="' +
+        fontColor +
+        '">' +
+        x.toFixed(3) +
+        '</font></td><td><font color="' +
+        fontColor +
+        '">' +
+        y.toFixed(3) +
+        '</font></td><td><font color="' +
+        fontColor +
+        '">' +
+        score.toFixed(3) +
+        "</font></td></tr>";
+    }
+    $("#msg").html("<table>" + str + "</table>");
+  }
+
+  function displayFPS() {
+    textAlign(LEFT, TOP);
+    // noStroke();
+    stroke(0);
+    strokeWeight(2);
+    textSize(18);
+    fill(255);
+    let show_text = "";
+    show_text +=
+      year() +
+      "-" +
+      str(month()).padStart(2, "0") +
+      "-" +
+      str(day()).padStart(2, "0") +
+      " " +
+      str(hour()).padStart(2, "0") +
+      ":" +
+      str(minute()).padStart(2, "0") +
+      ":" +
+      str(second()).padStart(2, "0");
+    show_text += "\nFPS: " + getFrameRate().toFixed(2);
+    text(show_text, 10, 10);
+  }
+</script>
