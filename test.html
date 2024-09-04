@@ -1,37 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+  <head>
+    <title>MyData</title>
+    <meta charset="utf-8" />
+  </head>
 
-<head>
-  <title>MyData</title>
-  <meta charset="utf-8" />
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-
-</head>
-
-<body>
-  <button id="ajax">Request</button> -- Click to inject &lt;p&gt;Control&lt;/p&gt; below
-  <div id="ctas"></div>
-</body>
-
+  <body>
+    <iframe
+      src="https://watch.ncdr.nat.gov.tw/watch_tracks_pro"
+      width="800px"
+      height="600px"
+    />
+  </body>
 </html>
-
-<script>
-  $('#ajax').click(function () {
-    setTimeout(function () {
-      $('#ctas').append('<p>Control</p>');
-    }, 50);
-  });
-
-  // Setup a new observer to get notified of changes
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      document.getElementById('ctas').innerHTML = new Date();
-      // $(mutation).innerHTML = new Date();
-    });
-  });
-
-  // Observe a specific DOM node / subtree
-  observer.observe($('#ctas')[0], {
-    childList: true
-  });
-</script>
