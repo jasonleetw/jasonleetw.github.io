@@ -3,13 +3,16 @@
   <head>
     <title>MyData</title>
     <meta charset="utf-8" />
+    <script src="js/radar.js"></script>
   </head>
-
   <body>
-    <iframe
-      src="https://watch.ncdr.nat.gov.tw/watch_tracks_pro"
-      width="800px"
-      height="600px"
-    />
+    <h1>雷達回波</h1>
+    <div id="radar"></div>
   </body>
 </html>
+<script>
+  document.getElementById("radar").innerHTML =
+    "<img src=" +
+    get_radar() +
+    " alt='雷過波圖片' width='600px' height='600px'/>";
+</script>
