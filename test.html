@@ -7,12 +7,12 @@
   </head>
   <body>
     <h1>雷達回波</h1>
-    <div id="radar"></div>
+    <img id="radar" src="" alt="雷過回波" style="width: 600px; height: 600px" />
   </body>
 </html>
 <script>
-  document.getElementById("radar").innerHTML =
-    "<img src=" +
-    get_radar() +
-    " alt='雷過波圖片' width='600px' height='600px'/>";
+  document.getElementById("radar").src = get_radar();
+  // "<img src=" +
+  // get_radar() +
+  // " alt='雷過波圖片' width='600px' height='600px'/>";
 </script>
